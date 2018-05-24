@@ -1,0 +1,18 @@
+{
+    "name": "philipnewcomer/linkify-tracking",
+    "description": "Linkifies package tracking numbers for DHL, FedEx, UPS, and USPS",
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Philip Newcomer",
+            "email": "contact@philipnewcomer.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "PhilipNewcomer\\LinkifyTracking\\": "src"
+        }
+    }
+}
