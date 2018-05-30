@@ -36,6 +36,11 @@ class LinkifyTracking
                 '/\b((M|P[A-Z]?|D[C-Z]|LK|E[A-C]|V[A-Z]|R[A-Z]|CP|CJ|LC|LJ) ?\d{3} ?\d{3} ?\d{3} ?[A-Z]?[A-Z]?)\b/i',
                 '/\b(82 ?\d{3} ?\d{3} ?\d{2})\b/i'
             ]
+        ],
+        [
+            'label' => 'Royal Mail',
+            'url' => 'http://www.royalmail.com/portal/rm/track?trackNumber=%s',
+            'regex' => '/\b(?!(EA|EB|EC|ED|EE|CP))[A-Za-z]{2}[0-9]{9}+GB\b/i'
         ]
     ];
 

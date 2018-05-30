@@ -1,5 +1,5 @@
 # linkify-tracking
-Linkifies package tracking numbers for DHL, FedEx, UPS, and USPS
+Linkifies package tracking numbers for DHL, FedEx, UPS, USPS, and Royal Mail (UK)
 
 ## Installation
 
