@@ -1,5 +1,5 @@
 # linkify-tracking
-Linkifies package tracking numbers for DHL, FedEx, UPS, USPS, and Royal Mail (UK)
+Linkifies package tracking numbers for DHL, FedEx, Royal Mail (UK), UPS, and USPS.
 
 ## Installation
 
@@ -78,4 +78,4 @@ $linkifyTracking = new PhilipNewcomer\LinkifyTracking\LinkifyTracking([
 
 ## Credits
 
-Tracking number regular expressions used in this package are taken from [https://github.com/darkain/php-tracking-urls](https://github.com/darkain/php-tracking-urls).
+Tracking number regular expressions for DHL, FedEx, UPS, and USPS are taken from [https://github.com/darkain/php-tracking-urls](https://github.com/darkain/php-tracking-urls).
