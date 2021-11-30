@@ -33,15 +33,26 @@ class LinkifyTracking
             'regex' => '/\b(((96\d\d|6\d)\d{3} ?\d{4}|96\d{2}|\d{4}) ?\d{4} ?\d{4}( ?\d{3})?)\b/i'
         ],
 		[
+			'label' => 'Royal Mail',
+			'url' => 'http://www.royalmail.com/portal/rm/track?trackNumber=%s',
+			'regex' => '/\b(?!(EA|EB|EC|ED|EE|CP))[A-Za-z]{2}[0-9]{9}+GB\b/i'
+		],
+		[
 			'label' => 'DHL',
 			'url' => 'http://www.dhl.com/content/g0/en/express/tracking.shtml?brand=DHL&AWB=%s',
-			'regex' => '/\b(\d{4}[- ]?\d{4}[- ]?\d{2}|\d{3}[- ]?\d{8}|[A-Z]{3}\d{7})\b/i'
-		],
-        [
-            'label' => 'Royal Mail',
-            'url' => 'http://www.royalmail.com/portal/rm/track?trackNumber=%s',
-            'regex' => '/\b(?!(EA|EB|EC|ED|EE|CP))[A-Za-z]{2}[0-9]{9}+GB\b/i'
-        ]
+			'regex' => [
+				'/\b\d{7}\b/i',
+				'/\b\d{9}\b/i',
+				'/\b\d{10}\b/i',
+				'/\b\d{14}\b/i',
+				'/\b[A-Z]{2,5}\d{8,39}\b/i',
+				'/\b(?:000|3S|JJD|JJD00|JJD01|JVGL)[A-Z0-9]{8,39}\b/i',
+				'/\b\d{1}[A-Z]{2}\d{4,6}\b/i',
+				'/\b\d{3}-\d{8}\b/i',
+				'/\b(?:[A-Z]{2,3}-){2}\d{7}\b/i',
+				'/\b(\d{4}[- ]?\d{4}[- ]?\d{2}|\d{3}[- ]?\d{8}|[A-Z]{3}\d{7})\b/i'
+			]
+		]
     ];
 
     /**
