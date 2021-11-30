@@ -13,46 +13,46 @@ class LinkifyTracking
      * @var array The tracking carriers, sorted by pattern specificity (descending).
      */
     protected $carriers = [
-		[
-			'label' => 'USPS',
-			'url' => 'https://tools.usps.com/go/TrackConfirmAction?tLabels=%s',
-			'regex' => [
-				'/\b((420 ?\d{5} ?)?(91|92|93|94|01|03|04|70|23|13)\d{2} ?\d{4} ?\d{4} ?\d{4} ?\d{4}( ?\d{2,6})?)\b/i',
-				'/\b((M|P[A-Z]?|D[C-Z]|LK|E[A-C]|V[A-Z]|R[A-Z]|CP|CJ|LC|LJ) ?\d{3} ?\d{3} ?\d{3} ?[A-Z]?[A-Z]?)\b/i',
-				'/\b(82 ?\d{3} ?\d{3} ?\d{2})\b/i'
-			]
-		],
-		[
-			'label' => 'UPS',
-			'url' => 'http://wwwapps.ups.com/WebTracking/processInputRequest?TypeOfInquiryNumber=T&InquiryNumber1=%s',
-			'regex' => '/\b(1Z ?[0-9A-Z]{3} ?[0-9A-Z]{3} ?[0-9A-Z]{2} ?[0-9A-Z]{4} ?[0-9A-Z]{3} ?[0-9A-Z]|T\d{3} ?\d{4} ?\d{3})\b/i'
-		],
+        [
+            'label' => 'USPS',
+            'url' => 'https://tools.usps.com/go/TrackConfirmAction?tLabels=%s',
+            'regex' => [
+                '/\b((420 ?\d{5} ?)?(91|92|93|94|01|03|04|70|23|13)\d{2} ?\d{4} ?\d{4} ?\d{4} ?\d{4}( ?\d{2,6})?)\b/i',
+                '/\b((M|P[A-Z]?|D[C-Z]|LK|E[A-C]|V[A-Z]|R[A-Z]|CP|CJ|LC|LJ) ?\d{3} ?\d{3} ?\d{3} ?[A-Z]?[A-Z]?)\b/i',
+                '/\b(82 ?\d{3} ?\d{3} ?\d{2})\b/i',
+            ],
+        ],
+        [
+            'label' => 'UPS',
+            'url' => 'http://wwwapps.ups.com/WebTracking/processInputRequest?TypeOfInquiryNumber=T&InquiryNumber1=%s',
+            'regex' => '/\b(1Z ?[0-9A-Z]{3} ?[0-9A-Z]{3} ?[0-9A-Z]{2} ?[0-9A-Z]{4} ?[0-9A-Z]{3} ?[0-9A-Z]|T\d{3} ?\d{4} ?\d{3})\b/i',
+        ],
         [
             'label' => 'FedEx',
             'url' => 'https://www.fedex.com/apps/fedextrack/?action=track&locale=en_US&cntry_code=us&tracknumbers=%s',
-            'regex' => '/\b(((96\d\d|6\d)\d{3} ?\d{4}|96\d{2}|\d{4}) ?\d{4} ?\d{4}( ?\d{3})?)\b/i'
+            'regex' => '/\b(((96\d\d|6\d)\d{3} ?\d{4}|96\d{2}|\d{4}) ?\d{4} ?\d{4}( ?\d{3})?)\b/i',
         ],
-		[
-			'label' => 'Royal Mail',
-			'url' => 'http://www.royalmail.com/portal/rm/track?trackNumber=%s',
-			'regex' => '/\b(?!(EA|EB|EC|ED|EE|CP))[A-Za-z]{2}[0-9]{9}+GB\b/i'
-		],
-		[
-			'label' => 'DHL',
-			'url' => 'http://www.dhl.com/content/g0/en/express/tracking.shtml?brand=DHL&AWB=%s',
-			'regex' => [
-				'/\b\d{7}\b/i',
-				'/\b\d{9}\b/i',
-				'/\b\d{10}\b/i',
-				'/\b\d{14}\b/i',
-				'/\b[A-Z]{2,5}\d{8,39}\b/i',
-				'/\b(?:000|3S|JJD|JJD00|JJD01|JVGL)[A-Z0-9]{8,39}\b/i',
-				'/\b\d{1}[A-Z]{2}\d{4,6}\b/i',
-				'/\b\d{3}-\d{8}\b/i',
-				'/\b(?:[A-Z]{2,3}-){2}\d{7}\b/i',
-				'/\b(\d{4}[- ]?\d{4}[- ]?\d{2}|\d{3}[- ]?\d{8}|[A-Z]{3}\d{7})\b/i'
-			]
-		]
+        [
+            'label' => 'Royal Mail',
+            'url' => 'http://www.royalmail.com/portal/rm/track?trackNumber=%s',
+            'regex' => '/\b(?!(EA|EB|EC|ED|EE|CP))[A-Za-z]{2}[0-9]{9}+GB\b/i',
+        ],
+        [
+            'label' => 'DHL',
+            'url' => 'http://www.dhl.com/content/g0/en/express/tracking.shtml?brand=DHL&AWB=%s',
+            'regex' => [
+                '/\b\d{7}\b/i',
+                '/\b\d{9}\b/i',
+                '/\b\d{10}\b/i',
+                '/\b\d{14}\b/i',
+                '/\b[A-Z]{2,5}\d{8,39}\b/i',
+                '/\b(?:000|3S|JJD|JJD00|JJD01|JVGL)[A-Z0-9]{8,39}\b/i',
+                '/\b\d{1}[A-Z]{2}\d{4,6}\b/i',
+                '/\b\d{3}-\d{8}\b/i',
+                '/\b(?:[A-Z]{2,3}-){2}\d{7}\b/i',
+                '/\b(\d{4}[- ]?\d{4}[- ]?\d{2}|\d{3}[- ]?\d{8}|[A-Z]{3}\d{7})\b/i',
+            ],
+        ],
     ];
 
     /**
@@ -89,8 +89,8 @@ class LinkifyTracking
     public function getLinkData(string $trackingNumber)
     {
         foreach ($this->carriers as $carrier) {
-            foreach ((array) $carrier['regex'] as $regex) {
-                if (! preg_match($regex, $trackingNumber, $matches)) {
+            foreach ((array)$carrier['regex'] as $regex) {
+                if (!preg_match($regex, $trackingNumber, $matches)) {
                     continue;
                 }
 
@@ -102,7 +102,7 @@ class LinkifyTracking
 
                 return [
                     'carrier' => $carrier['label'],
-                    'url' => sprintf($carrier['url'], rawurlencode($matches[0]))
+                    'url' => sprintf($carrier['url'], rawurlencode($matches[0])),
                 ];
             }
         }
@@ -119,13 +119,14 @@ class LinkifyTracking
      */
     public function linkify(string $content)
     {
-    	$linkficationQueue = [];
+        $linkficationQueue = [];
         foreach ($this->carriers as $carrier) {
-            foreach ((array) $carrier['regex'] as $regex) {
+            foreach ((array)$carrier['regex'] as $regex) {
                 $content = preg_replace_callback(
                     $regex,
                     function ($matches) use (&$linkficationQueue, $carrier) {
-						$linkficationQueue[] = $this->generateHtmlLink($carrier, $matches[0]);
+                        $linkficationQueue[] = $this->generateHtmlLink($carrier, $matches[0]);
+
                         return '%s';
                     },
                     $content
@@ -133,13 +134,13 @@ class LinkifyTracking
             }
         }
 
-		return sprintf($content, ...$linkficationQueue);
+        return sprintf($content, ...$linkficationQueue);
     }
 
     /**
      * Generates an HTML link to the given carrier for the given tracking number.
      *
-     * @param array $carrier
+     * @param array  $carrier
      * @param string $trackingNumber
      *
      * @return string
@@ -148,7 +149,7 @@ class LinkifyTracking
     {
         $attributes = array_merge(
             [
-                'href' => sprintf($carrier['url'], rawurlencode($trackingNumber))
+                'href' => sprintf($carrier['url'], rawurlencode($trackingNumber)),
             ],
             $this->args['linkAttributes'] ?? []
         );
