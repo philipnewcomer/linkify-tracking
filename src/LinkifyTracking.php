@@ -91,7 +91,7 @@ class LinkifyTracking
 
                 return [
                     'carrier' => $carrier['label'],
-                    'url' => sprintf($carrier['url'], $matches[0])
+                    'url' => sprintf($carrier['url'], rawurlencode($matches[0]))
                 ];
             }
         }
@@ -135,7 +135,7 @@ class LinkifyTracking
     {
         $attributes = array_merge(
             [
-                'href' => sprintf($carrier['url'], $trackingNumber)
+                'href' => sprintf($carrier['url'], rawurlencode($trackingNumber))
             ],
             $this->args['linkAttributes'] ?? []
         );
